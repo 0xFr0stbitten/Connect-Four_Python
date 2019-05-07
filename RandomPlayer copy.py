@@ -17,6 +17,7 @@ def process_move(player, board):
         checker = 'X'
     elif player.__repr__() == 'Player O' or 'Player O' in player.__repr__():
         checker = 'O'
+    #print("TEST")
     move = player.next_move(board)
     board.add_checker(checker, move)
     print('')
