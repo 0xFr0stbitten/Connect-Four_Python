@@ -43,7 +43,11 @@ class AIPlayer(Player):
         maximum = max(scores)
         for x in range(len(scores)):
             if scores[x] == maximum:
-                max_scores += [x]
+                # old code:
+                #max_scores += [x]
+                #new code:
+                max_scores.append(x)
+                
 
         if self.tiebreak == 'LEFT':
             return max_scores[0]
@@ -64,7 +68,7 @@ class AIPlayer(Player):
         number_columns = board.width
         for x in range(board.width):
             scores += [50]
-
+        #print(scores)
         for y in range(len(scores)):
             if board.can_add_to(y) == False:
                 scores[y] = -1
@@ -86,7 +90,10 @@ class AIPlayer(Player):
                     scores[y] = 50
                 elif max(potential_scores) == 100:
                     scores[y] = 0
-            return scores
+            #print(scores)
+            #print("Top of col 1 is", board.slots[0][1])
+            #return scores
+        return scores
 
 
 
